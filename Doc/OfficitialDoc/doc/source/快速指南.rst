@@ -1,0 +1,76 @@
+========
+快速指南
+========
+Veda利用click封装了命令行
+代码示例：
+
+.. code-block:: Bash
+
+	# 1.veda初始化
+	vedainit vedadata --veda_workspace '/home/shihua/tulip/AEwork/Veda/TEST'
+	# 2.vedapkg创建工作空间
+	vedactl vedapkgcreateworkspace --vedapkg_name 'test_vedapkg_1'
+	# 3.vedapkg添加组件
+	vedactl vedapkgaddcomponent --vedapkg_name 'test_vedapkg_1' --vedapkg_component_type 'Data' 
+	# --vedapkg_component_path '/home/shihua/tulip/AEwork/Veda/Demo/test_veda.py'
+	# 4.vedapkg打包
+	vedactl vedapkgpack --vedapkg_name 'test_vedapkg_1'
+	# 5.vedapkg信息初始化
+	vedactl vedapkginfoinit
+	# 6.vedapkg本地信息注册
+	vedactl vedapkginforegister --name 'test_vedapkg_2' --version 'beta-0.1' --author 'shihua' --summary 'This is a test package' --state 'Test' --requires 'TestPKG'
+	# 7.vedapkg本地信息更新
+	vedactl vedapkginfoupdate --name 'test_vedapkg_2' --info_key 'version' --info_value 'beta-0.2'
+	# 8.vedapkg本地信息查询
+	vedactl vedapkginfoquery --name 'test_vedapkg_1'
+	# 9.vedainfo远端信息注册
+	vedactl vedainforegisterremote --name 'test_vedapkg_2' --version 'beta-0.1' --author 'shihua' --summary 'This is a test package!' --state 'Test' --requires 'TestPKG' --host '10.2.12.248' --port '9000' --clickhouse_user 'admin' --clickhouse_password 'admin'
+	# 10.vedainfo远端信息查询
+	vedactl vedainfoqueryremote --name 'test_vedapkg_2' --host '10.2.12.248' --port '9000' --clickhouse_user 'admin' --clickhouse_password 'admin'
+	# 11.vedainfo远端信息更新
+	vedactl vedainfoupdateremote --name 'test_vedapkg_2' --host '10.2.12.248' --port '9000' --clickhouse_user 'admin' --clickhouse_password 'admin' --info_key 'author' --info_value 'shihua_test'
+	# 12.vedacontroller远端拉取
+	vedactl vedacontrollerpullremote --connect_info '10.2.12.248:9111' --access_key 'minioadmin' --secret_key 'minioadmin' --secure False --object_file 'test_local.vedapkg' --bucket 'vedapkg_remote'
+	# 13.vedacontroller远端推送
+	vedactl vedacontrollerpushremote --connect_info '10.2.12.248:9111' --access_key 'minioadmin' --secret_key 'minioadmin' --secure False --object_file 'test_local.vedapkg' --bucket 'vedapkg_remote'
+	# 14.vedaenv可用环境模板查询
+	vedactl vedaenvavail --avail_para 'test'
+	# 15.vedaenv已加载环境查询
+	vedactl vedaenvlist
+	# 16.vedaenv环境模板上传
+	vedactl vedaenvload --load_path '/home/shihua/tulip/test/veda/5.2.1' --password 'ATTACK7121553rb1' --target_path '/usr/share/modules/modulefiles/test/5.2.1'
+	# 17.vedaenv分布式运维接口
+	vedactl vedaenvansible --group 'shihua002' --mode 'shell' --exec_script 'pwd'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

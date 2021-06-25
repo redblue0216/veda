@@ -1,0 +1,251 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-cn" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>快速指南 &mdash; Veda 0.1 文档</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="设计" href="设计.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Veda
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="安装.html">安装</a></li>
+<li class="toctree-l1"><a class="reference internal" href="介绍.html">介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="设计.html">设计</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">快速指南</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Veda</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>快速指南</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/快速指南.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>快速指南<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>Veda利用click封装了命令行
+代码示例：</p>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1.veda初始化</span>
+vedainit vedadata --veda_workspace <span class="s1">&#39;/home/shihua/tulip/AEwork/Veda/TEST&#39;</span>
+<span class="c1"># 2.vedapkg创建工作空间</span>
+vedactl vedapkgcreateworkspace --vedapkg_name <span class="s1">&#39;test_vedapkg_1&#39;</span>
+<span class="c1"># 3.vedapkg添加组件</span>
+vedactl vedapkgaddcomponent --vedapkg_name <span class="s1">&#39;test_vedapkg_1&#39;</span> --vedapkg_component_type <span class="s1">&#39;Data&#39;</span>
+<span class="c1"># --vedapkg_component_path &#39;/home/shihua/tulip/AEwork/Veda/Demo/test_veda.py&#39;</span>
+<span class="c1"># 4.vedapkg打包</span>
+vedactl vedapkgpack --vedapkg_name <span class="s1">&#39;test_vedapkg_1&#39;</span>
+<span class="c1"># 5.vedapkg信息初始化</span>
+vedactl vedapkginfoinit
+<span class="c1"># 6.vedapkg本地信息注册</span>
+vedactl vedapkginforegister --name <span class="s1">&#39;test_vedapkg_2&#39;</span> --version <span class="s1">&#39;beta-0.1&#39;</span> --author <span class="s1">&#39;shihua&#39;</span> --summary <span class="s1">&#39;This is a test package&#39;</span> --state <span class="s1">&#39;Test&#39;</span> --requires <span class="s1">&#39;TestPKG&#39;</span>
+<span class="c1"># 7.vedapkg本地信息更新</span>
+vedactl vedapkginfoupdate --name <span class="s1">&#39;test_vedapkg_2&#39;</span> --info_key <span class="s1">&#39;version&#39;</span> --info_value <span class="s1">&#39;beta-0.2&#39;</span>
+<span class="c1"># 8.vedapkg本地信息查询</span>
+vedactl vedapkginfoquery --name <span class="s1">&#39;test_vedapkg_1&#39;</span>
+<span class="c1"># 9.vedainfo远端信息注册</span>
+vedactl vedainforegisterremote --name <span class="s1">&#39;test_vedapkg_2&#39;</span> --version <span class="s1">&#39;beta-0.1&#39;</span> --author <span class="s1">&#39;shihua&#39;</span> --summary <span class="s1">&#39;This is a test package!&#39;</span> --state <span class="s1">&#39;Test&#39;</span> --requires <span class="s1">&#39;TestPKG&#39;</span> --host <span class="s1">&#39;10.2.12.248&#39;</span> --port <span class="s1">&#39;9000&#39;</span> --clickhouse_user <span class="s1">&#39;admin&#39;</span> --clickhouse_password <span class="s1">&#39;admin&#39;</span>
+<span class="c1"># 10.vedainfo远端信息查询</span>
+vedactl vedainfoqueryremote --name <span class="s1">&#39;test_vedapkg_2&#39;</span> --host <span class="s1">&#39;10.2.12.248&#39;</span> --port <span class="s1">&#39;9000&#39;</span> --clickhouse_user <span class="s1">&#39;admin&#39;</span> --clickhouse_password <span class="s1">&#39;admin&#39;</span>
+<span class="c1"># 11.vedainfo远端信息更新</span>
+vedactl vedainfoupdateremote --name <span class="s1">&#39;test_vedapkg_2&#39;</span> --host <span class="s1">&#39;10.2.12.248&#39;</span> --port <span class="s1">&#39;9000&#39;</span> --clickhouse_user <span class="s1">&#39;admin&#39;</span> --clickhouse_password <span class="s1">&#39;admin&#39;</span> --info_key <span class="s1">&#39;author&#39;</span> --info_value <span class="s1">&#39;shihua_test&#39;</span>
+<span class="c1"># 12.vedacontroller远端拉取</span>
+vedactl vedacontrollerpullremote --connect_info <span class="s1">&#39;10.2.12.248:9111&#39;</span> --access_key <span class="s1">&#39;minioadmin&#39;</span> --secret_key <span class="s1">&#39;minioadmin&#39;</span> --secure False --object_file <span class="s1">&#39;test_local.vedapkg&#39;</span> --bucket <span class="s1">&#39;vedapkg_remote&#39;</span>
+<span class="c1"># 13.vedacontroller远端推送</span>
+vedactl vedacontrollerpushremote --connect_info <span class="s1">&#39;10.2.12.248:9111&#39;</span> --access_key <span class="s1">&#39;minioadmin&#39;</span> --secret_key <span class="s1">&#39;minioadmin&#39;</span> --secure False --object_file <span class="s1">&#39;test_local.vedapkg&#39;</span> --bucket <span class="s1">&#39;vedapkg_remote&#39;</span>
+<span class="c1"># 14.vedaenv可用环境模板查询</span>
+vedactl vedaenvavail --avail_para <span class="s1">&#39;test&#39;</span>
+<span class="c1"># 15.vedaenv已加载环境查询</span>
+vedactl vedaenvlist
+<span class="c1"># 16.vedaenv环境模板上传</span>
+vedactl vedaenvload --load_path <span class="s1">&#39;/home/shihua/tulip/test/veda/5.2.1&#39;</span> --password <span class="s1">&#39;ATTACK7121553rb1&#39;</span> --target_path <span class="s1">&#39;/usr/share/modules/modulefiles/test/5.2.1&#39;</span>
+<span class="c1"># 17.vedaenv分布式运维接口</span>
+vedactl vedaenvansible --group <span class="s1">&#39;shihua002&#39;</span> --mode <span class="s1">&#39;shell&#39;</span> --exec_script <span class="s1">&#39;pwd&#39;</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="设计.html" class="btn btn-neutral float-left" title="设计" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2021, shihua.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

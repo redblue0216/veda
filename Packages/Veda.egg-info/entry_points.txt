@@ -1,0 +1,4 @@
+[console_scripts]
+vedactl = Veda.scripts.cli:veda
+vedainit = Veda.scripts.cli_init:vedainit
+

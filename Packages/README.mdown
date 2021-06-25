@@ -1,0 +1,12 @@
+# Veda
++ 简介
+Veda是一个算法包管理工具，包括本地库，远端库，以及分布式环境等必要操作
++ 主要技术
+（1）Sqlite3
+（2）ClickHouse
+（3）Ansible
+（4）Environment Modules
++ 安装
+```
+pip install -i http://10.3.110.71:8080 --trusted-host 10.3.110.71 Veda
+```
